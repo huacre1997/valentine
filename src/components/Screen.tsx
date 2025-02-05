@@ -91,16 +91,25 @@ const Screen: React.FC<ScreenProps> = ({ screenNumber, message, buttons, isVisib
                                 key={index}
                                 className={button.className}
                                 onClick={() => button.onClick ? button.onClick() : onButtonClick(button)}
-                                whileHover={{
-                                    scale: 1.1,
-                                    background: "linear-gradient(135deg, #e91e63, #9b59b6)",
-                                    boxShadow: "0 6px 15px rgba(0, 0, 0, 0.4)",
+
+                                animate={{
+                                    y: [0, -10, 0],
                                 }}
-                                transition={{ type: "spring", stiffness: 300 }}
+                                transition={{
+                                    duration: 0.5, // Duración de cada salto
+                                    ease: "easeInOut",
+                                    delay: index * 2, // Cada botón espera 2 segundos más que el anterior
+                                    repeat: Infinity, // Se repite infinitamente
+                                    repeatType: "loop",
+                                    repeatDelay: 2, // Espera 2 segundos entre saltos
+                                }}
                             >
                                 {button.text}
                             </motion.button>
                         ))}
+
+
+
                     </div>
                 </motion.div>
             )}

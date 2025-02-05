@@ -24,7 +24,7 @@ const App: React.FC = () => {
       message: `Hola señorita ${NAME} muy buenos días 😊🌞`,
       background: "/bg1.png",
       buttons: [
-        { text: "Hola, buenos días! 😍", className: "btn-hello  btn-primary", nextScreen: 2 },
+        { text: "Hola, buenos días! 😍", className: "btn-hello  btn-primary", nextScreen: 2, index: 1 },
         { text: "No moleste joven ! 😤", className: "btn-sorry  btn-primary", nextScreen: 5 },
       ],
       iconSrc: "",
