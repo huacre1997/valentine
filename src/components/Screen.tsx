@@ -27,7 +27,7 @@ const Screen: React.FC<ScreenProps> = ({ screenNumber, message, buttons, isVisib
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 1, ease: "easeInOut" }}
+                    transition={{ duration: 2, ease: "easeInOut" }}
                     style={{ display: "block", position: "relative", overflow: "hidden" }}
                 >
                     {/* Fondo Animado con Fade */}
@@ -35,7 +35,7 @@ const Screen: React.FC<ScreenProps> = ({ screenNumber, message, buttons, isVisib
                         initial={{ opacity: 0 }}
                         animate={{ opacity: isVisible ? 1 : 0 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 1, ease: "easeInOut" }}
+                        transition={{ duration: 2, ease: "easeInOut" }}
                         style={{
                             position: "absolute",
                             top: 0,
@@ -51,7 +51,7 @@ const Screen: React.FC<ScreenProps> = ({ screenNumber, message, buttons, isVisib
                         className="message-container"
                         initial={{ opacity: 0, y: -50 }}
                         animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -50 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
+                        transition={{ duration: 2, ease: "easeOut" }}
                     >
                         <MessageWithAnimation message={message} />
                     </motion.div>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Screen from "./components/Screen";
 import BackgroundFade from "./components/BackgroundFade";
 import "./App.css";
+import MusicPlayer from "./components/MusicPlayer";
 const NAME = import.meta.env.VITE_NAME
 const LITTLE_NAME = import.meta.env.VITE_LITTLE_NAME
 const App: React.FC = () => {
@@ -23,8 +24,8 @@ const App: React.FC = () => {
       message: `Hola señorita ${NAME} muy buenos días 😊🌞`,
       background: "/bg1.png",
       buttons: [
-        { text: "Hola, buenos días! 😍", className: "btn-hello", nextScreen: 2 },
-        { text: "No moleste joven ! 😤", className: "btn-sorry", nextScreen: 5 },
+        { text: "Hola, buenos días! 😍", className: "btn-hello  btn-primary", nextScreen: 2 },
+        { text: "No moleste joven ! 😤", className: "btn-sorry  btn-primary", nextScreen: 5 },
       ],
       iconSrc: "",
     },
@@ -33,8 +34,8 @@ const App: React.FC = () => {
       message: "Deseo hacerle una pregunta si no fuera mucha molestia 🤔💬",
       background: "/bg2.png",
       buttons: [
-        { text: "Pregunta con confianza 🙌", className: "btn-accept", nextScreen: 3 },
-        { text: "Otro día joven! 😤", className: "btn-reject", nextScreen: 6 },
+        { text: "Pregunta con confianza 🙌", className: "btn-accept  btn-primary", nextScreen: 3 },
+        { text: "Otro día joven! 😤", className: "btn-reject  btn-primary", nextScreen: 6 },
       ],
       iconSrc: "",
     },
@@ -43,8 +44,8 @@ const App: React.FC = () => {
       message: "¿Deseas ser mi San Valentín? 💘❤️",
       background: "/bg3.png",
       buttons: [
-        { text: "Sí, claro 😍", className: "btn-yes", nextScreen: 4 },
-        { text: "Lo siento 😢", className: "btn-no", nextScreen: 7 },
+        { text: "Sí, claro 😍", className: "btn-yes  btn-primary", nextScreen: 4 },
+        { text: "Lo siento 😢", className: "btn-no  btn-primary", nextScreen: 7 },
       ],
       iconSrc: "",
     },
@@ -61,7 +62,7 @@ const App: React.FC = () => {
       message: "¡Oh! Parece que no estás de buen humor 😔, pero enserio es muy importante lo que le tengo que decir 🙌 ",
       background: "/bg1.png",
       buttons: [
-        { text: "Volver a intentarlo", className: "btn-back", nextScreen: 1 },
+        { text: "Volver a intentarlo", className: "btn-back btn-primary", nextScreen: 1 },
       ],
       iconSrc: "",
     },
@@ -70,7 +71,7 @@ const App: React.FC = () => {
       message: "Lo siento mucho, no era mi intención molestarla 😢. Pero le aseguro que no tardaré mucho! 🙌",
       background: "/bg2.png",
       buttons: [
-        { text: "Volver a intentarlo", className: "btn-back", nextScreen: 2 },
+        { text: "Volver a intentarlo", className: "btn-back btn-primary", nextScreen: 2 },
       ],
       iconSrc: "",
     }, {
@@ -78,7 +79,7 @@ const App: React.FC = () => {
       message: "No aceptaré un no como respuesta 😤. ¡Vamos, acepta ser mi San Valentín! 💘❤️",
       background: "/bg3.png",
       buttons: [
-        { text: "Reconsiderar respuesta 🤗", className: "btn-back", nextScreen: 3 },
+        { text: "Reconsiderar respuesta 🤗", className: "btn-back  btn-primary", nextScreen: 3 },
       ],
       iconSrc: "",
     },
@@ -88,6 +89,8 @@ const App: React.FC = () => {
 
   return (
     <div className="app">
+      <MusicPlayer />
+
       {currentScreenData && <BackgroundFade background={currentScreenData.background} />}
 
       {currentScreenData && (
