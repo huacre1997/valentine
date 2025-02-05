@@ -39,7 +39,7 @@ const MusicPlayer: React.FC = () => {
 
     return (
         <div className="music-player">
-            <audio ref={audioRef} src={MUSIC_SRC} />
+            <audio ref={audioRef} src={MUSIC_SRC} preload="auto" />
 
             {/* Botón Circular */}
             <button onClick={togglePlay} className="music-button">
