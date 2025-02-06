@@ -1,13 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Screen from "./components/Screen";
 import BackgroundFade from "./components/BackgroundFade";
 import "./App.css";
 import MusicPlayer from "./components/MusicPlayer";
-const NAME = import.meta.env.VITE_NAME
-const LITTLE_NAME = import.meta.env.VITE_LITTLE_NAME
+import { screens } from "./data";
+import { appConfig } from "./config"; // Importar la configuración
+import Particles from "@tsparticles/react";
+import { initParticlesEngine } from "@tsparticles/react";
+import { loadAll } from "@tsparticles/all"
+import particles_config from "./particles";
+import particles_config_screen2 from "./fireworks"; // Otra configuración para una pantalla específica
+
+interface ParticlesComponentProps {
+  options: Record<string, unknown>; // Replace 'any' with a more specific type
+}
+
+const ParticlesComponent: React.FC<ParticlesComponentProps> = React.memo(({ options }) => (
+  <Particles
+    id="tsparticles"
+    options={options} // Usamos la configuración de partículas que se pasa como prop
+  />
+));
+
 const App: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState(1);
   const [isVisible, setIsVisible] = useState(true);
+  const [particlesOptions, setParticlesOptions] = useState(particles_config); // Estado para las opciones de partículas
 
   const nextScreen = (nextScreenNumber: number) => {
     setIsVisible(false);
@@ -17,79 +35,37 @@ const App: React.FC = () => {
     }, 1000);
   };
 
-
-  const screens = [
-    {
-      screenNumber: 1,
-      message: `Hola señorita ${NAME} muy buenos días 😊🌞`,
-      background: "/bg1.png",
-      buttons: [
-        { text: "Hola, buenos días! 😍", className: "btn-hello  btn-primary", nextScreen: 2, index: 1 },
-        { text: "No moleste joven ! 😤", className: "btn-sorry  btn-primary", nextScreen: 5 },
-      ],
-      iconSrc: "",
-    },
-    {
-      screenNumber: 2,
-      message: "Deseo hacerle una pregunta si no fuera mucha molestia 🤔💬",
-      background: "/bg2.png",
-      buttons: [
-        { text: "Pregunta con confianza 🙌", className: "btn-accept  btn-primary", nextScreen: 3 },
-        { text: "Otro día joven! 😤", className: "btn-reject  btn-primary", nextScreen: 6 },
-      ],
-      iconSrc: "",
-    },
-    {
-      screenNumber: 3,
-      message: "¿Deseas ser mi San Valentín? 💘❤️",
-      background: "/bg3.png",
-      buttons: [
-        { text: "Sí, claro 😍", className: "btn-yes  btn-primary", nextScreen: 4 },
-        { text: "Lo siento 😢", className: "btn-no  btn-primary", nextScreen: 7 },
-      ],
-      iconSrc: "",
-    },
-    {
-      screenNumber: 4,
-      message: `¡Gracias mi ${LITTLE_NAME} hermosa, por aceptar! No sabes lo feliz que me hace saber que compartiremos este día tan especial. 🥰🐉`,
-      background: "/bg4.png",
-      buttons: [
-      ],
-      iconSrc: "/heart.png",
-    },
-    {
-      screenNumber: 5,
-      message: "¡Oh! Parece que no estás de buen humor 😔, pero enserio es muy importante lo que le tengo que decir 🙌 ",
-      background: "/bg1.png",
-      buttons: [
-        { text: "Volver a intentarlo", className: "btn-back btn-primary", nextScreen: 1 },
-      ],
-      iconSrc: "",
-    },
-    {
-      screenNumber: 6,
-      message: "Lo siento mucho, no era mi intención molestarla 😢. Pero le aseguro que no tardaré mucho! 🙌",
-      background: "/bg2.png",
-      buttons: [
-        { text: "Volver a intentarlo", className: "btn-back btn-primary", nextScreen: 2 },
-      ],
-      iconSrc: "",
-    }, {
-      screenNumber: 7,
-      message: "No aceptaré un no como respuesta 😤. ¡Vamos, acepta ser mi San Valentín! 💘❤️",
-      background: "/bg3.png",
-      buttons: [
-        { text: "Reconsiderar respuesta 🤗", className: "btn-back  btn-primary", nextScreen: 3 },
-      ],
-      iconSrc: "",
-    },
-  ];
-
   const currentScreenData = screens.find(screen => screen.screenNumber === currentScreen);
+
+  // Cambiar configuración de partículas según la pantalla
+  useEffect(() => {
+    switch (currentScreen) {
+      case 1:
+        setParticlesOptions(particles_config); // Configuración para la pantalla 1
+        break;
+      case 4:
+        setParticlesOptions(particles_config_screen2); // Configuración para la pantalla 2
+        break;
+      default:
+        setParticlesOptions(particles_config); // Configuración predeterminada
+    }
+  }, [currentScreen]);
+
+  // Usar el engine al cargar las partículas
+  useEffect(() => {
+    initParticlesEngine(async (engine) => {
+      await loadAll(engine); // Ahora pasamos el engine al cargar las partículas
+      console.log("Partículas cargadas");
+    }).then(() => {
+      console.log("Motor de partículas inicializado");
+    });
+  }, []);
 
   return (
     <div className="app">
-      <MusicPlayer />
+      <ParticlesComponent options={particlesOptions} /> {/* Pasamos la configuración dinámica de partículas */}
+
+      {appConfig.enableMusicPlayer && <MusicPlayer />} {/* Renderizar según config */}
 
       {currentScreenData && <BackgroundFade background={currentScreenData.background} />}
 
