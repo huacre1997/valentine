@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import MessageWithAnimation from "./MessageWithAnimation";
 import GradientButton from "./GradientButton";
+import { iconVariants, messageVariants, screenVariants } from "../config/animationConfig";
 
 interface ButtonProps {
     text: string;
@@ -14,7 +15,7 @@ interface ScreenProps {
     buttons: ButtonProps[];
     isVisible: boolean;
     onButtonClick?: (button: ButtonProps) => void;
-    iconSrc: string;  // Añadimos una propiedad para la imagen del icono
+    iconSrc: string;
 }
 
 const Screen: React.FC<ScreenProps> = ({ screenNumber, message, buttons, isVisible, onButtonClick = () => { }, iconSrc }) => {
@@ -24,23 +25,23 @@ const Screen: React.FC<ScreenProps> = ({ screenNumber, message, buttons, isVisib
                 <motion.div
                     key={screenNumber}
                     className={`screen screen-${screenNumber}`}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
+                    variants={screenVariants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
                     transition={{ duration: 1, ease: "easeInOut" }}
                     style={{ display: "block", position: "relative", overflow: "hidden" }}
                 >
-                    {/* Mensaje animado */}
                     <motion.div
                         className="message-container"
-                        initial={{ opacity: 0, y: -50 }}
-                        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -50 }}
+                        variants={messageVariants}
+                        initial="initial"
+                        animate="animate"
                         transition={{ duration: 2, ease: "easeOut" }}
                     >
                         <MessageWithAnimation message={message} />
                     </motion.div>
 
-                    {/* Ícono animado */}
                     {iconSrc && (
                         <div style={{
                             display: "grid",
@@ -53,15 +54,11 @@ const Screen: React.FC<ScreenProps> = ({ screenNumber, message, buttons, isVisib
                             <motion.img
                                 src={iconSrc}
                                 alt="Heart Icon"
-                                style={{ width: "80px" }}
-                                initial={{ scale: 1 }}
-                                animate={{ scale: [1, 1.2, 1] }}
-                                transition={{
-                                    duration: 0.8,
-                                    repeat: Infinity,
-                                    repeatType: "loop",
-                                    ease: "easeInOut",
-                                }}
+                                style={{ width: "80px", filter: "drop-shadow(0 0 5px rgba(255, 0, 0, 0.8))" }}
+                                variants={iconVariants}
+                                initial="initial"
+                                animate="animate"
+                                transition={iconVariants.transition}
                             />
                         </div>
                     )}
@@ -73,7 +70,13 @@ const Screen: React.FC<ScreenProps> = ({ screenNumber, message, buttons, isVisib
                                 index={index}
                                 key={index}
                                 {...button}
-                                onClick={() => button.onClick ? button.onClick() : onButtonClick(button)}
+                                onClick={() => {
+                                    if (button.onClick) {
+                                        button.onClick(); // Llamamos la función específica del botón si existe
+                                    } else {
+                                        onButtonClick(button); // Llamamos la función general
+                                    }
+                                }}
                             />
                         ))}
                     </div>

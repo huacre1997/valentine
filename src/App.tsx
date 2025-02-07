@@ -3,13 +3,13 @@ import Screen from "./components/Screen";
 import BackgroundFade from "./components/BackgroundFade";
 import "./App.css";
 import MusicPlayer from "./components/MusicPlayer";
-import { screens } from "./data";
-import { appConfig } from "./config"; // Importar la configuración
+import { screens } from "./config/data";
+import { appConfig } from "./config/config"; // Importar la configuración
 import Particles from "@tsparticles/react";
 import { initParticlesEngine } from "@tsparticles/react";
 import { loadAll } from "@tsparticles/all"
-import particles_config from "./particles";
-import particles_config_screen2 from "./fireworks"; // Otra configuración para una pantalla específica
+import snow from "./config/particles/snow";
+import fireworks from "./config/particles/fireworks"; // Otra configuración para una pantalla específica
 
 interface ParticlesComponentProps {
   options: Record<string, unknown>; // Replace 'any' with a more specific type
@@ -23,9 +23,9 @@ const ParticlesComponent: React.FC<ParticlesComponentProps> = React.memo(({ opti
 ));
 
 const App: React.FC = () => {
-  const [currentScreen, setCurrentScreen] = useState(1);
+  const [currentScreen, setCurrentScreen] = useState(4);
   const [isVisible, setIsVisible] = useState(true);
-  const [particlesOptions, setParticlesOptions] = useState(particles_config); // Estado para las opciones de partículas
+  const [particlesOptions, setParticlesOptions] = useState(snow); // Estado para las opciones de partículas
 
   const nextScreen = (nextScreenNumber: number) => {
     setIsVisible(false);
@@ -41,13 +41,13 @@ const App: React.FC = () => {
   useEffect(() => {
     switch (currentScreen) {
       case 1:
-        setParticlesOptions(particles_config); // Configuración para la pantalla 1
+        setParticlesOptions(snow); // Configuración para la pantalla 1
         break;
       case 4:
-        setParticlesOptions(particles_config_screen2); // Configuración para la pantalla 2
+        setParticlesOptions(fireworks); // Configuración para la pantalla 2
         break;
       default:
-        setParticlesOptions(particles_config); // Configuración predeterminada
+        setParticlesOptions(snow); // Configuración predeterminada
     }
   }, [currentScreen]);
 
@@ -55,7 +55,6 @@ const App: React.FC = () => {
   useEffect(() => {
     initParticlesEngine(async (engine) => {
       await loadAll(engine); // Ahora pasamos el engine al cargar las partículas
-      console.log("Partículas cargadas");
     }).then(() => {
       console.log("Motor de partículas inicializado");
     });
@@ -63,7 +62,7 @@ const App: React.FC = () => {
 
   return (
     <div className="app">
-      <ParticlesComponent options={particlesOptions} /> {/* Pasamos la configuración dinámica de partículas */}
+      {appConfig.animationEnabled && <ParticlesComponent options={particlesOptions} />}
 
       {appConfig.enableMusicPlayer && <MusicPlayer />} {/* Renderizar según config */}
 
