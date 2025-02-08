@@ -76,6 +76,7 @@ html {
   flex-wrap: wrap;
 }
 
+/* 🎨 Botón Base */
 .btn-primary {
   padding: 12px 25px;
   font-size: 1.2em;
@@ -93,20 +94,69 @@ html {
 
 button:active {
   transform: scale(0.98);
+}
+
+/* 🌷 Botones Tulipanes */
+.tulip-btn {
+  background-color: #9b59b6; /* Morado tulipán */
+  box-shadow: 0px 4px 10px rgba(155, 89, 182, 0.5);
+}
+
+.tulip-btn:active {
   background-color: #6f2a59;
 }
 
-.accept-btn {
+.accept-btn.tulip-btn {
   background-color: #9b59b6;
-  color: white;
-  border: 2px solid #8e44ad;
 }
 
-.decline-btn {
+.decline-btn.tulip-btn {
   background-color: #8e44ad;
-  color: white;
   border: 2px solid #9b59b6;
 }
+
+/* 🌹 Botones Rosas Rojas */
+.rose-btn {
+  background-color: #c0392b; /* Rojo intenso */
+  border: 2px solid #a93226;
+}
+
+.rose-btn:active {
+  background-color: #922b21;
+}
+
+.accept-btn.rose-btn {
+  background-color: #e74c3c;
+  border: 2px solid #c0392b;
+}
+
+.decline-btn.rose-btn {
+  background-color: #c0392b;
+  border: 2px solid #e74c3c;
+}
+
+/* 🌻 Botones Girasoles */
+.sunflower-btn {
+  background-color: #f1c40f; /* Amarillo girasol */
+  color: #4a3000; /* Marrón oscuro */
+  border: 2px solid #d4ac0d;
+}
+
+.sunflower-btn:active {
+  background-color: #d4ac0d;
+}
+
+.accept-btn.sunflower-btn {
+  background-color: #f39c12;
+  border: 2px solid #d68910;
+}
+
+.decline-btn.sunflower-btn {
+  background-color: #d68910;
+  border: 2px solid #f39c12;
+}
+
+/* 🎵 Estilos para el Reproductor de Música */
 .music-player {
   position: absolute;
   top: 10px;
@@ -120,11 +170,10 @@ button:active {
   backdrop-filter: blur(5px);
 }
 
-/* 🎵 Botón Circular */
+/* 🔘 Botón Circular del Reproductor */
 .music-button {
   width: 35px;
   height: 35px;
-  background: linear-gradient(135deg, #ff4081, #9b59b6);
   border: none;
   border-radius: 50%;
   display: flex;
@@ -137,20 +186,75 @@ button:active {
 
 .music-button:hover {
   transform: scale(1.1);
-  box-shadow: 0px 0px 10px rgba(255, 64, 129, 0.5);
+  box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
 }
 
-/* 📏 Barra de Progreso */
+/* 🌹 Tema Rosas */
+.roses-music-button {
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+  box-shadow: 0px 4px 10px rgba(192, 57, 43, 0.5);
+}
+
+.roses-music-button:hover {
+  box-shadow: 0px 6px 15px rgba(231, 76, 60, 0.7);
+}
+
+/* 🌷 Tema Tulipanes */
+.tulips-music-button {
+  background: linear-gradient(135deg, #9b59b6, #e91e63);
+  box-shadow: 0px 4px 10px rgba(155, 89, 182, 0.5);
+}
+
+.tulips-music-button:hover {
+  box-shadow: 0px 6px 15px rgba(233, 30, 99, 0.7);
+}
+
+/* 🌻 Tema Girasoles */
+.sunflowers-music-button {
+  background: linear-gradient(135deg, #f1c40f, #f39c12);
+  box-shadow: 0px 4px 10px rgba(241, 196, 15, 0.5);
+}
+
+.sunflowers-music-button:hover {
+  box-shadow: 0px 6px 15px rgba(243, 156, 18, 0.7);
+}
+
+/* 📏 Barra de Progreso - Estilos Generales */
 .progress-bar {
-  width: 120px; /* 🔥 Barra más larga */
+  width: 120px;
   height: 4px;
-  background: rgba(255, 255, 255, 0.3);
   border-radius: 4px;
   overflow: hidden;
 }
 
 .progress {
   height: 100%;
-  background: #ff4081;
   transition: width 0.2s ease;
+}
+
+/* 🌹 Barra de Progreso - Rosas */
+.roses-progress-bar {
+  background: rgba(231, 76, 60, 0.3);
+}
+
+.roses-progress {
+  background: #e74c3c;
+}
+
+/* 🌷 Barra de Progreso - Tulipanes */
+.tulips-progress-bar {
+  background: rgba(233, 30, 99, 0.3);
+}
+
+.tulips-progress {
+  background: #e91e63;
+}
+
+/* 🌻 Barra de Progreso - Girasoles */
+.sunflowers-progress-bar {
+  background: rgba(243, 156, 18, 0.3);
+}
+
+.sunflowers-progress {
+  background: #f39c12;
 }

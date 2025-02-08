@@ -1,12 +1,18 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Play, Pause } from "lucide-react"; // Íconos minimalistas
+import { Play, Pause } from "lucide-react";
+import { appConfig } from "../config/config";
 
-const MUSIC_SRC = "/song.mp3"; // Asegúrate de que la ruta sea correcta
+const MUSIC_SRC = "/song.mp3";
 
 const MusicPlayer: React.FC = () => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [progress, setProgress] = useState(0);
     const audioRef = useRef<HTMLAudioElement | null>(null);
+
+    const THEME = appConfig.theme;
+    const buttonClass = `${THEME}-music-button`;
+    const progressBarClass = `${THEME}-progress-bar`;
+    const progressClass = `${THEME}-progress`;
 
     useEffect(() => {
         const audio = audioRef.current;
@@ -40,11 +46,11 @@ const MusicPlayer: React.FC = () => {
     return (
         <div className="music-player">
             <audio ref={audioRef} src={MUSIC_SRC} preload="auto" />
-            <button onClick={togglePlay} className="music-button">
+            <button onClick={togglePlay} className={`music-button ${buttonClass}`}>
                 {isPlaying ? <Pause size={18} /> : <Play size={18} />}
             </button>
-            <div className="progress-bar">
-                <div className="progress" style={{ width: `${progress}%` }}></div>
+            <div className={`progress-bar ${progressBarClass}`}>
+                <div className={`progress ${progressClass}`} style={{ width: `${progress}%` }}></div>
             </div>
         </div>
     );

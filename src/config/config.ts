@@ -3,4 +3,5 @@ export const appConfig = {
   language: import.meta.env.VITE_LANGUAGE || "es", // Configuración del idioma
   userName: import.meta.env.VITE_NAME || "Señorita", // Nombre de la persona
   animationEnabled: import.meta.env.VITE_ANIMATION_ENABLED || false, // Nombre de la persona
+  theme: import.meta.env.VITE_THEME || "roses", // Nombre de la persona
 };
