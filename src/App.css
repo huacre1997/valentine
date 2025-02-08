@@ -99,7 +99,7 @@ button:active {
 /* 🌷 Botones Tulipanes */
 .tulip-btn {
   background-color: #9b59b6; /* Morado tulipán */
-  box-shadow: 0px 4px 10px rgba(155, 89, 182, 0.5);
+  box-shadow: 0px 4px 10px rgba(155, 89, 182, 0.8);
 }
 
 .tulip-btn:active {
@@ -118,7 +118,7 @@ button:active {
 /* 🌹 Botones Rosas Rojas */
 .rose-btn {
   background-color: #c0392b; /* Rojo intenso */
-  border: 2px solid #a93226;
+  box-shadow: 0px 4px 10px rgba(192, 57, 43, 0.8);
 }
 
 .rose-btn:active {
