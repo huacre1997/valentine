@@ -141,16 +141,42 @@ const screens = [
   },
   {
     screenNumber: 7,
-    message: t.no_response,
+    message: t.final_no_response_1,
     background: backgrounds[2],
     buttons: [
       {
-        text: t.buttons.reconsider,
+        text: t.buttons.final_no_response_1,
         className: `${buttonClass} btn-primary`,
-        nextScreen: 3,
+        nextScreen: 8,
       },
     ],
     iconSrc: "",
+  },
+  {
+    screenNumber: 8, // Nueva pantalla después del "No" definitivo
+    message: t.final_no_response_2, // Mensaje especial
+    background: backgrounds[2],
+    buttons: [
+      {
+        text: t.buttons.final_no_response_2,
+        className: `${buttonClass} btn-primary`,
+        nextScreen: 9, // Regresar al inicio
+      },
+    ],
+    iconSrc: "", // Ícono triste para darle más efecto
+  },
+  {
+    screenNumber: 9, // Nueva pantalla después del "No" definitivo
+    message: t.final_no_response_3, // Mensaje especial
+    background: backgrounds[2],
+    buttons: [
+      {
+        text: t.buttons.final_yes_response_1,
+        className: `${buttonClass} btn-primary`,
+        nextScreen: 3, // Regresar al inicio
+      },
+    ],
+    iconSrc: "", // Ícono triste para darle más efecto
   },
 ];
 
