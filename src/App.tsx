@@ -67,7 +67,7 @@ const App: React.FC = () => {
 
       {appConfig.enableMusicPlayer && <MusicPlayer />} {/* Renderizar según config */}
 
-      {currentScreenData && <BackgroundFade background={currentScreenData.background} />}
+      {currentScreenData && <BackgroundFade imagePath={currentScreenData.background} />}
 
       {currentScreenData && (
         <Screen
