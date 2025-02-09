@@ -3,7 +3,7 @@ import { locales } from "./locales";
 
 const NAME = appConfig.userName;
 const LANGUAGE = appConfig.language as keyof typeof locales;
-const THEME = appConfig.theme; // Tema por defecto: rosas
+const THEME = appConfig.theme;
 
 const t = locales[LANGUAGE];
 
@@ -35,6 +35,15 @@ const themeConfig = {
       "/background/sunflowers/bg_sunflowers4.png",
     ],
     buttonClass: "sunflower-btn",
+  },
+  lilies: {
+    backgrounds: [
+      "/background/lilies/bg_lilies1.png",
+      "/background/lilies/bg_lilies2.png",
+      "/background/lilies/bg_lilies3.png",
+      "/background/lilies/bg_lilies4.png",
+    ],
+    buttonClass: "lily-btn",
   },
 };
 

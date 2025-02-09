@@ -6,6 +6,7 @@ const flowerEmoji =
     tulips: "🌷",
     sunflowers: "🌻",
     roses: "🌹",
+    lilies: "🪻",
   }[theme] || "🌸"; // Usa 🌸 como valor por defecto si el tema no coincide
 
 export const locales = {

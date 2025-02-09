@@ -37,7 +37,7 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.1);
   z-index: 1;
 }
 
@@ -254,4 +254,55 @@ button:active {
 
 .sunflowers-progress {
   background: #f39c12;
+}
+.lily-btn {
+  background-color: #2980b9;
+  box-shadow: 0px 4px 10px rgba(41, 128, 185, 0.8);
+}
+
+.lily-btn:active {
+  background-color: #1a5276;
+}
+
+.accept-btn.lily-btn {
+  background-color: #3498db;
+  border: 2px solid #2980b9;
+}
+
+.decline-btn.lily-btn {
+  background-color: #2980b9;
+  border: 2px solid #3498db;
+}
+
+/* 🎵 Estilos para el Reproductor de Música */
+.music-player {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 12px;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+}
+
+/* 🎶 Tema Lirios Azules */
+.lilies-music-button {
+  background: linear-gradient(135deg, #2980b9, #3498db);
+  box-shadow: 0px 4px 10px rgba(41, 128, 185, 0.5);
+}
+
+.lilies-music-button:hover {
+  box-shadow: 0px 6px 15px rgba(52, 152, 219, 0.7);
+}
+
+/* 📏 Barra de Progreso - Lirios Azules */
+.lilies-progress-bar {
+  background: rgba(52, 152, 219, 0.3);
+}
+
+.lilies-progress {
+  background: #3498db;
 }

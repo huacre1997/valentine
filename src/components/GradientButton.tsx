@@ -21,6 +21,9 @@ const themeStyles: Record<string, { gradient: string }> = {
     sunflowers: {
         gradient: "linear-gradient(135deg, #f39c12, #ffeb3b)", // Naranja cálido a amarillo brillante
     },
+    lilies: {
+        gradient: "linear-gradient(135deg, #2980b9,rgb(118, 203, 252))", // Azul profundo a azul brillante
+    },
 };
 
 const GradientButton: React.FC<ButtonProps> = ({ index, text, className, onClick }) => {
