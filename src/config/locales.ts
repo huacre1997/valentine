@@ -1,6 +1,16 @@
+import { appConfig } from "./config";
+
+const theme = appConfig.theme as "tulips" | "sunflowers" | "roses";
+const flowerEmoji =
+  {
+    tulips: "🌷",
+    sunflowers: "🌻",
+    roses: "🌹",
+  }[theme] || "🌸"; // Usa 🌸 como valor por defecto si el tema no coincide
+
 export const locales = {
   es: {
-    greetings: "Hola señorita {name}, muy buenos días 😊🌞",
+    greetings: `Hola señorita {name}, muy buenos días 😊🌞${flowerEmoji}`,
     ask_question: "Deseo hacerle una pregunta si no fuera mucha molestia 🤔💬",
     be_my_valentine: "¿Deseas ser mi San Valentín? 💘❤️",
     thank_you:
@@ -20,7 +30,7 @@ export const locales = {
     },
   },
   en: {
-    greetings: "Good morning, Miss {name}! 😊🌞",
+    greetings: `Good morning, Miss {name}! 😊🌞${flowerEmoji}`,
     ask_question: "I have a question for you, if you don't mind 🤔💬",
     be_my_valentine: "Would you be my Valentine? 💘❤️",
     thank_you:
@@ -39,4 +49,4 @@ export const locales = {
       reconsider: "Reconsider 🤗",
     },
   },
-} as const; // 👈 Esto le dice a TypeScript que estos valores son constantes y no cambiarán.
+} as const;

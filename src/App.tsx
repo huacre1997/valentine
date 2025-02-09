@@ -62,6 +62,7 @@ const App: React.FC = () => {
 
   return (
     <div className="app">
+
       {appConfig.animationEnabled && <ParticlesComponent options={particlesOptions} />}
 
       {appConfig.enableMusicPlayer && <MusicPlayer />} {/* Renderizar según config */}

@@ -139,7 +139,6 @@ button:active {
 .sunflower-btn {
   background-color: #f1c40f; /* Amarillo girasol */
   color: #4a3000; /* Marrón oscuro */
-  border: 2px solid #d4ac0d;
 }
 
 .sunflower-btn:active {
@@ -148,12 +147,10 @@ button:active {
 
 .accept-btn.sunflower-btn {
   background-color: #f39c12;
-  border: 2px solid #d68910;
 }
 
 .decline-btn.sunflower-btn {
   background-color: #d68910;
-  border: 2px solid #f39c12;
 }
 
 /* 🎵 Estilos para el Reproductor de Música */

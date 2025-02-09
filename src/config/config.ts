@@ -1,7 +1,17 @@
-export const appConfig = {
-  enableMusicPlayer: import.meta.env.VITE_ENABLE_MUSIC || false, // Configuración del idioma, // Cambia a false si no quieres que se renderice
-  language: import.meta.env.VITE_LANGUAGE || "es", // Configuración del idioma
-  userName: import.meta.env.VITE_NAME || "Señorita", // Nombre de la persona
-  animationEnabled: import.meta.env.VITE_ANIMATION_ENABLED || false, // Nombre de la persona
-  theme: import.meta.env.VITE_THEME || "roses", // Nombre de la persona
+export const appConfig: {
+  enableMusicPlayer: boolean;
+  language: "es" | "en";
+  userName: string;
+  animationEnabled: boolean;
+  theme: "tulips" | "sunflowers" | "roses";
+} = {
+  enableMusicPlayer: import.meta.env.VITE_ENABLE_MUSIC === "true", // Asegurar booleano
+  language: (import.meta.env.VITE_LANGUAGE as "es" | "en") || "es", // Limitar a "es" o "en"
+  userName: import.meta.env.VITE_NAME || "Señorita",
+  animationEnabled: import.meta.env.VITE_ANIMATION_ENABLED === "true", // Asegurar booleano
+  theme:
+    (import.meta.env.VITE_THEME as "tulips" | "sunflowers" | "roses") ||
+    "roses", // Limitar a los temas válidos
 };
+
+console.log(appConfig);

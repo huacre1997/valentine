@@ -29,10 +29,10 @@ const themeConfig = {
   },
   sunflowers: {
     backgrounds: [
-      "/background/bg_sunflowers1.png",
-      "/background/bg_sunflowers2.png",
-      "/background/bg_sunflowers3.png",
-      "/background/bg_sunflowers4.png",
+      "/background/sunflowers/bg_sunflowers1.png",
+      "/background/sunflowers/bg_sunflowers2.png",
+      "/background/sunflowers/bg_sunflowers3.png",
+      "/background/sunflowers/bg_sunflowers4.png",
     ],
     buttonClass: "sunflower-btn",
   },

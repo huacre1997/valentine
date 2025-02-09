@@ -28,7 +28,6 @@ const GradientButton: React.FC<ButtonProps> = ({ index, text, className, onClick
     const { gradient } = themeStyles[theme];
 
     const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
-        console.log("aea")
         const { offsetX, offsetY, target } = e.nativeEvent;
         const { clientWidth, clientHeight } = target as HTMLButtonElement;
 
@@ -48,7 +47,7 @@ const GradientButton: React.FC<ButtonProps> = ({ index, text, className, onClick
                 background: gradient,
                 backgroundSize: "200% 200%",
                 backgroundPosition,
-                border: `2px solid`,
+                border: `2px solid white`,
             }}
             variants={getButtonVariants(index)}
             initial="initial"

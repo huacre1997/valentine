@@ -1,8 +1,11 @@
 import { AnimatePresence, motion } from "framer-motion";
+import { appConfig } from "../config/config";
+
+const { animationEnabled } = appConfig;
 
 // Componente para manejar el fade del fondo
 const BackgroundFade: React.FC<{ background: string }> = ({ background }) => {
-    return (
+    return animationEnabled ? (
         <AnimatePresence>
             <motion.div
                 key={background}
@@ -24,6 +27,21 @@ const BackgroundFade: React.FC<{ background: string }> = ({ background }) => {
                 }}
             />
         </AnimatePresence>
+    ) : (
+        <div
+            className="background"
+            style={{
+                backgroundImage: `url(${background})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                zIndex: -1,
+            }}
+        />
     );
 };
 
