@@ -11,28 +11,28 @@ const t = locales[LANGUAGE];
 const themeConfig = {
   roses: {
     backgrounds: [
-      "/background/roses/bg_roses1.png",
-      "/background/roses/bg_roses2.png",
-      "/background/roses/bg_roses3.png",
-      "/background/roses/bg_roses4.png",
+      "/roses/bg_roses1.png?updatedAt=1739137058911",
+      "/roses/bg_roses2.png?updatedAt=1739137059447",
+      "/roses/bg_roses3.png?updatedAt=1739137059176",
+      "/roses/bg_roses4.png?updatedAt=1739137059319",
     ],
     buttonClass: "rose-btn",
   },
   tulips: {
     backgrounds: [
-      "/background/tulips/bg_tulips1.png",
-      "/background/tulips/bg_tulips2.png",
-      "/background/tulips/bg_tulips3.png",
-      "/background/tulips/bg_tulips4.png",
+      "/tulips/bg_tulips1.png?updatedAt=1739137532427",
+      "/tulips/bg_tulips2.png?updatedAt=1739137532740",
+      "/tulips/bg_tulips3.png?updatedAt=1739137532222",
+      "/tulips/bg_tulips4.png?updatedAt=1739137537426",
     ],
     buttonClass: "tulip-btn",
   },
   sunflowers: {
     backgrounds: [
-      "/background/sunflowers/bg_sunflowers1.png",
-      "/background/sunflowers/bg_sunflowers2.png",
-      "/background/sunflowers/bg_sunflowers3.png",
-      "/background/sunflowers/bg_sunflowers4.png",
+      "/sunflowers/bg_sunflowers1.png?updatedAt=1739137328426",
+      "/sunflowers/bg_sunflowers2.png?updatedAt=1739137327900",
+      "/sunflowers/bg_sunflowers3.png?updatedAt=1739137327922",
+      "/sunflowers/bg_sunflowers4.png?updatedAt=1739137328157",
     ],
     buttonClass: "sunflower-btn",
   },
