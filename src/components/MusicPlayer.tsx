@@ -17,7 +17,7 @@ const MusicPlayer: React.FC = () => {
     useEffect(() => {
         const audio = audioRef.current;
         if (!audio) return;
-
+        audio.volume = 0.2;
         const updateProgress = () => {
             setProgress((audio.currentTime / audio.duration) * 100 || 0);
         };
