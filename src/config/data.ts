@@ -38,10 +38,10 @@ const themeConfig = {
   },
   lilies: {
     backgrounds: [
-      "/background/lilies/bg_lilies1.png",
-      "/background/lilies/bg_lilies2.png",
-      "/background/lilies/bg_lilies3.png",
-      "/background/lilies/bg_lilies4.png",
+      "/lilies/bg_lilies1.png",
+      "/lilies/bg_lilies2.png",
+      "/lilies/bg_lilies3.png",
+      "/lilies/bg_lilies4.png",
     ],
     buttonClass: "lily-btn",
   },

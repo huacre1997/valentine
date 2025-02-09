@@ -1,31 +1,30 @@
-import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { appConfig } from "../config/config";
+import { AnimatePresence, motion } from "framer-motion";
 
-const { animationEnabled } = appConfig;
+const API_URL = "http://localhost:3000"; // Cambia por la URL de tu API
 
-// Componente para manejar el fade del fondo con precarga de imágenes
 const BackgroundFade: React.FC<{ background: string }> = ({ background }) => {
-    const [loaded, setLoaded] = useState(false);
+    const [signedUrl, setSignedUrl] = useState("");
 
     useEffect(() => {
-        const img = new Image();
-        img.src = background;
-        img.onload = () => setLoaded(true);
+        fetch(`${API_URL}/getSignedUrl?path=${background}`)
+            .then((res) => res.json())
+            .then((data) => setSignedUrl(data.signedUrl))
+            .catch((err) => console.error("Error al obtener la URL firmada", err));
     }, [background]);
 
-    return animationEnabled ? (
+    return (
         <AnimatePresence>
-            {loaded && (
+            {signedUrl && (
                 <motion.div
-                    key={background}
+                    key={signedUrl}
                     className="background"
                     initial={{ opacity: 0, filter: "brightness(0.5)", scale: 1.1 }}
                     animate={{ opacity: 1, filter: "brightness(1)", scale: 1 }}
                     exit={{ opacity: 0, filter: "brightness(0)", scale: 1.1 }}
                     transition={{ duration: 1, ease: "easeInOut" }}
                     style={{
-                        backgroundImage: `url(${background})`,
+                        backgroundImage: `url(${signedUrl})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         position: "absolute",
@@ -38,23 +37,6 @@ const BackgroundFade: React.FC<{ background: string }> = ({ background }) => {
                 />
             )}
         </AnimatePresence>
-    ) : (
-        loaded && (
-            <div
-                className="background"
-                style={{
-                    backgroundImage: `url(${background})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "100%",
-                    zIndex: -1,
-                }}
-            />
-        )
     );
 };
 
