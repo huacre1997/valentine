@@ -12,6 +12,8 @@ import fireworks from "./config/particles/fireworks";
 import { AnimatePresence, motion } from "framer-motion";
 import { IKImage, IKContext } from "imagekitio-react";
 import { ISourceOptions } from "@tsparticles/engine";
+import { Helmet } from "react-helmet-async";
+import { locales } from "./config/locales";
 
 const IMAGEKIT_URL = "https://ik.imagekit.io/whmaz07lo";
 
@@ -49,56 +51,61 @@ const App = () => {
   }, []);
 
   return (
-    <div className="app">
-      {appConfig.animationEnabled && <ParticlesComponent options={particlesOptions} />}
-      {appConfig.enableMusicPlayer && <MusicPlayer />}
-      <div className="background-container">
-        <AnimatePresence>
-          {backgrounds.map((bg, index) => (
-            <motion.div
-              key={`${bg}-${index}`} // 🔥 Clave única para evitar errores
-              className="background"
-              initial={{ opacity: 0, scale: 1.2 }} // 🔹 Aparece con zoom más grande
-              animate={{ opacity: 1, scale: 1 }} // 🔹 Se acerca y aparece
-              exit={{ opacity: 0, scale: 1.1 }} // 🔹 Se acerca un poco más y se desvanece
-              transition={{ duration: 2, ease: "easeInOut" }}
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                zIndex: -1,
-              }}
-            >
-              <IKContext publicKey="public_tSlmzVaaNOyClK/ZLiFxRdk4uoA=" urlEndpoint={IMAGEKIT_URL}>
-                <IKImage
-                  path={bg}
-                  lqip={{ active: true, quality: 20 }}
-                  loading="lazy"
-                  transformation={[{ width: "1920", height: "1080", quality: "90" }]}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
-                />
-              </IKContext>
-            </motion.div>
-          ))}
-        </AnimatePresence>
-      </div>
+    <>
+      <Helmet>
+        <title>{locales[appConfig.language].title}</title>
+      </Helmet>
+      <div className="app">
 
-      {screens.find(screen => screen.screenNumber === currentScreen) && (
-        <Screen
-          screenNumber={currentScreen}
-          message={screens.find(screen => screen.screenNumber === currentScreen)?.message || ""}
-          buttons={screens.find(screen => screen.screenNumber === currentScreen)?.buttons.map(button => ({
-            ...button,
-            onClick: () => setCurrentScreen(button.nextScreen),
-          })) || []}
-          isVisible={true}
-          iconSrc={screens.find(screen => screen.screenNumber === currentScreen)?.iconSrc || ""}
-        />
-      )}
+        {appConfig.animationEnabled && <ParticlesComponent options={particlesOptions} />}
+        {appConfig.enableMusicPlayer && <MusicPlayer />}
+        <div className="background-container">
+          <AnimatePresence>
+            {backgrounds.map((bg, index) => (
+              <motion.div
+                key={`${bg}-${index}`} // 🔥 Clave única para evitar errores
+                className="background"
+                initial={{ opacity: 0, scale: 1.2 }} // 🔹 Aparece con zoom más grande
+                animate={{ opacity: 1, scale: 1 }} // 🔹 Se acerca y aparece
+                exit={{ opacity: 0, scale: 1.1 }} // 🔹 Se acerca un poco más y se desvanece
+                transition={{ duration: 2, ease: "easeInOut" }}
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  zIndex: -1,
+                }}
+              >
+                <IKContext publicKey="public_tSlmzVaaNOyClK/ZLiFxRdk4uoA=" urlEndpoint={IMAGEKIT_URL}>
+                  <IKImage
+                    path={bg}
+                    lqip={{ active: true, quality: 20 }}
+                    loading="lazy"
+                    transformation={[{ width: "1920", height: "1080", quality: "90" }]}
+                    style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
+                  />
+                </IKContext>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
 
-    </div>
+        {screens.find(screen => screen.screenNumber === currentScreen) && (
+          <Screen
+            screenNumber={currentScreen}
+            message={screens.find(screen => screen.screenNumber === currentScreen)?.message || ""}
+            buttons={screens.find(screen => screen.screenNumber === currentScreen)?.buttons.map(button => ({
+              ...button,
+              onClick: () => setCurrentScreen(button.nextScreen),
+            })) || []}
+            isVisible={true}
+            iconSrc={screens.find(screen => screen.screenNumber === currentScreen)?.iconSrc || ""}
+          />
+        )}
+
+      </div></>
   );
 };
 

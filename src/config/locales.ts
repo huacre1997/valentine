@@ -6,11 +6,13 @@ const flowerEmoji =
     tulips: "🌷",
     sunflowers: "🌻",
     roses: "🌹",
-    lilies: "🪻",
+    lilies: "",
   }[theme] || "🌸";
 
 export const locales = {
   es: {
+    title: "Si no lo abres, me pondré triste 😢",
+
     greetings: `Hola señorita {name}, muy buenos días 😊🌞${flowerEmoji}`,
     ask_question: "Deseo hacerle una pregunta si no fuera mucha molestia 🤔💬",
     be_my_valentine: "¿Deseas ser mi San Valentín? 💘❤️",
@@ -42,6 +44,7 @@ export const locales = {
     },
   },
   en: {
+    title: "If you don't open it, I'll be sad 😢",
     greetings: `Good morning, Miss {name}! 😊🌞${flowerEmoji}`,
     ask_question: "I have a question for you, if you don't mind 🤔💬",
     be_my_valentine: "Would you be my Valentine? 💘❤️",
