@@ -7,7 +7,7 @@ const flowerEmoji =
     sunflowers: "🌻",
     roses: "🌹",
     lilies: "🪻",
-  }[theme] || "🌸"; // Usa 🌸 como valor por defecto si el tema no coincide
+  }[theme] || "🌸";
 
 export const locales = {
   es: {
@@ -26,18 +26,19 @@ export const locales = {
     final_no_response_4: "No me duele... me quema... ¡me lastima! 😭🔥💔",
 
     buttons: {
-      hello: "Hola, buenos días! 😍🌞",
-      no_disturb: "No moleste joven! 😤🚫",
-      ask: "Pregunta con confianza 🙌💬",
-      another_day: "Otro día joven! 😤⏳",
-      yes: "Sí, claro! 😍💖",
-      no: "Lo siento 😢💔",
-      retry: "De acuerdo, pregúntame otra vez 🤭🔄",
-      reconsider: "Reconsiderar respuesta 🤗🔄",
-      final_no_response_1: "No, en serio no 😤🚫",
-      final_no_response_2: "😬 Uy… mira la hora, es momento de irme 🚶‍♀️💨",
-      final_no_response_3: "Me parece bien 🤭",
-      final_no_response_4: "Jaja, era bromita 😆, pregúntame otra vez 🔄",
+      hello: "Hola, buenos días! [inlove]🌞",
+      no_disturb: "No moleste joven! [angry]🚫",
+      ask: "Pregunta con confianza [hands]💬",
+      another_day: "Otro día joven! [angry]⏳",
+      yes: "Sí, claro! [inlove][heart]",
+      no: "Lo siento [cry][brokenheart]",
+      retry: "De acuerdo, pregúntame otra vez [smile]🔄",
+      reconsider: "Reconsiderar respuesta [hugface]🔄",
+      final_no_response_1: "No, en serio no [angry]🚫",
+      final_no_response_2:
+        "[grimacing] Uy… mira la hora, es momento de irme 🚶‍♀️💨",
+      final_no_response_3: "Me parece bien [smile]",
+      final_no_response_4: "Jaja, era bromita [laugh], pregúntame otra vez 🔄",
     },
   },
   en: {
