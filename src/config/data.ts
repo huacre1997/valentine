@@ -171,7 +171,20 @@ const screens = [
     background: backgrounds[2],
     buttons: [
       {
-        text: t.buttons.final_yes_response_1,
+        text: t.buttons.final_no_response_3,
+        className: `${buttonClass} btn-primary`,
+        nextScreen: 10, // Regresar al inicio
+      },
+    ],
+    iconSrc: "", // Ícono triste para darle más efecto
+  },
+  {
+    screenNumber: 10, // Nueva pantalla después del "No" definitivo
+    message: t.final_no_response_4, // Mensaje especial
+    background: backgrounds[2],
+    buttons: [
+      {
+        text: t.buttons.final_no_response_4,
         className: `${buttonClass} btn-primary`,
         nextScreen: 3, // Regresar al inicio
       },

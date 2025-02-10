@@ -53,6 +53,12 @@ html {
   opacity: 1;
 }
 
+.emoji-wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%; /* Asegura que ocupe toda la línea */
+  margin: 5px 0; /* Espaciado entre texto y emoji */
+}
 .message-container h1 {
   font-size: clamp(2rem, 6vw, 5rem);
   text-transform: none;
@@ -60,11 +66,34 @@ html {
   font-family: "Righteous", sans-serif;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
 }
-
+.gif-emoji {
+  width: auto; /* Mantiene la proporción original */
+  height: 1.2em; /* Se ajusta al tamaño del texto */
+  max-height: 64px; /* Evita que sea demasiado grande */
+  display: inline-block; /* Asegura que se comporte como texto */
+  vertical-align: middle; /* Lo centra verticalmente con el texto */
+}
 .message-container p {
   font-size: clamp(1.5rem, 3vw, 3.5rem);
   margin-top: 0;
   font-family: "Arial", sans-serif;
+}
+.emoji-img {
+  width: 48px;
+  height: 48px;
+  display: inline-block;
+  animation: bounce 1s infinite ease-in-out;
+}
+
+/* Animación de rebote para los emojis */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
 }
 
 .buttons-container {
@@ -305,4 +334,27 @@ button:active {
 
 .lilies-progress {
   background: #3498db;
+}
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-1 {
+  gap: 4px; /* Puedes ajustar el espacio entre elementos */
 }

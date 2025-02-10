@@ -23,6 +23,7 @@ export const locales = {
       "Oh no... 😢 Mi corazón está roto, pero aún te quiero. 💔",
     final_no_response_3:
       "Está bien... 😞 *me voy con mi caja de chocolates a llorar en un rincón* 🍫😭.",
+    final_no_response_4: "No me duele... me quema... ¡me lastima! 😭🔥💔",
 
     buttons: {
       hello: "Hola, buenos días! 😍🌞",
@@ -35,8 +36,8 @@ export const locales = {
       reconsider: "Reconsiderar respuesta 🤗🔄",
       final_no_response_1: "No, en serio no 😤🚫",
       final_no_response_2: "😬 Uy… mira la hora, es momento de irme 🚶‍♀️💨",
-      final_yes_response_1: "De acuerdo, pregúntame otra vez 🤭🔄",
-      try_again: "😏 Bueno, ya... vamos otra vez 🔄",
+      final_no_response_3: "Me parece bien 🤭",
+      final_no_response_4: "Jaja, era bromita 😆, pregúntame otra vez 🔄",
     },
   },
   en: {
@@ -52,20 +53,22 @@ export const locales = {
       "Oh no... 😢 My heart is shattered, but I still love you. 💔",
     final_no_response_3:
       "Alright then... 😞 *I'll just go cry in a corner with my box of chocolates* 🍫😭.",
+    final_no_response_4: "It doesn’t hurt... it burns... it wounds me! 😭🔥💔",
 
     buttons: {
-      hello: "Good morning! 😍🌞",
-      no_disturb: "Don’t bother me! 😤🚫",
-      ask: "Go ahead and ask 🙌💬",
-      another_day: "Maybe another day! 😤⏳",
-      yes: "Yes, of course! 😍💖",
-      no: "Sorry 😢💔",
-      retry: "Alright, ask me again 🤭🔄",
-      reconsider: "Reconsider 🤗🔄",
-      final_no_response_1: "No, seriously no 😤🚫",
-      final_no_response_2: "😬 Oh wow… look at the time, gotta go! 🚶‍♀️💨",
-      final_yes_response_1: "Alright, ask me again 🤭🔄",
-      try_again: "😏 Alright, fine... let's go again 🔄",
+      hello: "Good morning! [inlove]🌞",
+      no_disturb: "Don’t bother me! [angry]🚫",
+      ask: "Go ahead and ask [hands]💬",
+      another_day: "Maybe another day! [angry]⏳",
+      yes: "Yes, of course! [inlove][heart]",
+      no: "Sorry [cry][brokenheart]",
+      retry: "Alright, ask me again [smile]🔄",
+      reconsider: "Reconsider [hugface]🔄",
+      final_no_response_1: "No, seriously no [rage]🚫",
+      final_no_response_2:
+        "[grimacing] Oh wow… look at the time, gotta go! 🚶‍♀️💨",
+      final_no_response_3: "That’s fine [smile]",
+      final_no_response_4: "Haha, just kidding [laugh], ask me again 🔄",
     },
   },
 } as const;

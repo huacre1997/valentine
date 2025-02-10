@@ -94,7 +94,7 @@ const options: ISourceOptions = {
             },
           },
           shape: {
-            type: "circle",
+            type: "star",
           },
           size: {
             value: 2,

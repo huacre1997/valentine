@@ -97,6 +97,7 @@ const App = () => {
           iconSrc={screens.find(screen => screen.screenNumber === currentScreen)?.iconSrc || ""}
         />
       )}
+
     </div>
   );
 };
